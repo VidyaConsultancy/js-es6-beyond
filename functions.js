@@ -34,3 +34,10 @@ console.log(result);
 
 const add = (a) => 10 + a;
 console.log(add(10));
+
+function funFun(params) {
+  return params;
+}
+
+const returnValue = funFun(10);
+console.log(returnValue);
