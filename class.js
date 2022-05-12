@@ -1,3 +1,4 @@
+// Function Constructor
 class Person {
   constructor(name, age, energy = 100) {
     this.name = name;
@@ -13,10 +14,26 @@ class Person {
   }
 }
 
+class Employee extends Person {
+  constructor(name, age, dept) {
+    super(name, age);
+    this.dept = dept;
+  }
+
+  walk() {
+    super.walk();
+    return `Employee is walking.`;
+  }
+}
+
 const john = new Person("John", 29);
-console.log(john.walk());
-console.log(john.walk());
-console.log(john.walk());
 const jane = new Person("Jane", 22);
+const e1 = new Employee("Jonas", 28, "HR");
 console.log(john);
 console.log(jane);
+console.log(e1);
+console.log(jane.walk());
+console.log(e1.walk());
+// console.log(john.walk());
+// console.log(john.walk());
+// console.log(john.walk());
