@@ -27,15 +27,14 @@ console.log(book);
 console.log(jane instanceof Person);
 
 
-/*
 // Function Constructor
-function Person(name, age, energy = 100) {
+function NewPerson(name, age, energy = 100) {
   this.name = name;
   this.age = age;
   this.energy = energy;
 }
 
-Person.prototype.walk = function () {
+NewPerson.prototype.walk = function () {
   if (this.energy <= 0) return `I can't walk. Out of energy.`;
   if (this.energy < 40) return `Not enough energy to walk`;
   this.energy -= 40;
@@ -43,26 +42,25 @@ Person.prototype.walk = function () {
 };
 
 function Employee(name, age, dept) {
-    Person.call(this, name, age);
+    NewPerson.call(this, name, age);
     this.dept = dept;
 }
 console.log(Object.create({}))
 
-Employee.prototype = Object.create(Person.prototype);
+Employee.prototype = Object.create(NewPerson.prototype);
 Employee.prototype.constructor = Employee;
 Employee.prototype.walk = function () {
-  Person.prototype.walk();
+  NewPerson.prototype.walk();
   return `Employee is walking`
 }
 
-const john = new Person("John", 29);
-const jane = new Person("Jane", 22);
+const jonas = new Person("Jonas", 29);
+const jenny = new Person("Jenny", 22);
 const e1 = new Employee('Jonas', 28, 'HR');
-console.log(john);
-console.log(jane);
+console.log(jonas);
+console.log(jenny);
 console.log(e1);
 // console.log(jane.walk())
 // console.log(john.walk());
 // console.log(john.walk());
 // console.log(john.walk());
-*/
