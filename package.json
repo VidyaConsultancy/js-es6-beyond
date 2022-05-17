@@ -1,0 +1,12 @@
+{
+    "name": "javascript-es6-beyond",
+    "version": "1.0.0",
+    "major": 1,
+    "minor": 0,
+    "private": true,
+    "keywords": ["javascript", "ECMAScript", "ES6", "ES6 beyond", "ESNext"],
+    "dependencies": {
+        "react": "^17.x.x",
+        "react-router-dom": "~5.0.0"
+    }
+}
