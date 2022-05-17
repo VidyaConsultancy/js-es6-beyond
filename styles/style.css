@@ -58,6 +58,7 @@ img {
 .books__item {
     border-radius: 4px;
     border: 1px solid #eeeeee;
+    background-color: #ffffff;
 }
 
 .books__item-image {

@@ -5,6 +5,7 @@ import CircleClass, {
 } from "./circle/circle-functions.js";
 import * as circle from "./circle/circle-functions.js";
 import { area, perimeter } from "./square/square.js";
+import { renderBooksData, apiUrl } from "./books.js";
 
 console.log(ca(40));
 console.log(circlePerimeter(40));
@@ -28,7 +29,7 @@ const arrObj = JSON.parse(arrString);
 console.log(jsonObj, arrObj);
 
 const goToGoogleBtn = document.getElementById("goToGoogle");
-goToGoogleBtn.addEventListener("click", goToGoogle);
+goToGoogleBtn && goToGoogleBtn.addEventListener("click", goToGoogle);
 function goToGoogle() {
   window.location.href = "https://google.com";
   // window.location.replace("https://google.com");
@@ -44,9 +45,7 @@ function goToGoogle() {
 // console.log(container, btnsInContainer);
 
 const getBooksBtn = document.getElementById("getBooks");
-getBooksBtn.addEventListener("click", () => {
-  const apiUrl = "https://fakerapi.it/api/v1/books";
-
+getBooksBtn && getBooksBtn.addEventListener("click", () => {
   // XHR / AJAX request
   // XMLHttpRequest
   const handleXHRReadyStateChange = (e) => {
@@ -58,47 +57,6 @@ getBooksBtn.addEventListener("click", () => {
     }
   };
 
-  const renderBooksData = (books) => {
-    const playground = document.getElementById("playground");
-    playground.innerHTML = "";
-
-    const booksSection = document.createElement("section");
-    booksSection.classList.add("books");
-
-    const booksTitle = document.createElement("h2");
-    booksTitle.innerText = "Books";
-    booksTitle.classList.add("books__title");
-    booksSection.appendChild(booksTitle);
-
-    const booksContainer = document.createElement("div");
-    booksContainer.classList.add("books__container");
-
-    books.forEach((book) => {
-      const bookElement = document.createElement("div");
-      bookElement.classList.add("books__item");
-      bookElement.id = `book-${book.id}`;
-      
-      const bookImg = document.createElement('img');
-      bookImg.src = book.image;
-      bookImg.classList.add('books__item-image');
-      bookElement.appendChild(bookImg);
-
-      const bookTitle = document.createElement("h3");
-      bookTitle.innerText = book.title;
-      bookTitle.classList.add("books__item-title");
-      bookElement.appendChild(bookTitle);
-      
-      const bookDesc = document.createElement("p");
-      bookDesc.innerText = book.description;
-      bookDesc.classList.add("books__item-brief");
-      bookElement.appendChild(bookDesc);
-
-      booksContainer.append(bookElement);
-    });
-    booksSection.append(booksContainer);
-    playground.appendChild(booksSection);
-  };
-
   const xhr = new XMLHttpRequest();
   console.log(xhr);
   // xhr.addEventListener("readystatechange", handleXHRReadyStateChange);
@@ -107,3 +65,4 @@ getBooksBtn.addEventListener("click", () => {
   xhr.open("GET", apiUrl);
   xhr.send();
 });
+
